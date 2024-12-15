@@ -2,8 +2,8 @@ import gymnasium as gym
 
 # Custom Gym wrapper for the InvertedPendulum
 class CustomInvertedPendulum(gym.Wrapper):
-    def __init__(self, env):
-        super(CustomInvertedPendulum, self).__init__(env)
+    def __init__(self, render_mode=None):
+        super(CustomInvertedPendulum, self).__init__(gym.make("InvertedPendulum-v5", render_mode=render_mode))
 
     def step(self, action):
         obs, reward, done, truncated, info = self.env.step(action)

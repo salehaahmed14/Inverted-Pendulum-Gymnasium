@@ -1,18 +1,16 @@
 import gymnasium as gym
 from stable_baselines3 import PPO
-from stable_baselines3.common.callbacks import BaseCallback
 import matplotlib.pyplot as plt
 from custom_env import CustomInvertedPendulum
 from custom_callback import CustomCallback
 
 # Instantiate the custom environment
-env = gym.make("InvertedPendulum-v5")
-custom_env = CustomInvertedPendulum(env)
+env = CustomInvertedPendulum()
 
 # Initialize PPO model with custom environment
 model = PPO(
     policy="MlpPolicy",
-    env=custom_env,
+    env=env,
     verbose=1
 )
 

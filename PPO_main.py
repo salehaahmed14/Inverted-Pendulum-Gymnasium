@@ -11,13 +11,12 @@ n_steps = 2048
 clip_range = 0.3
     
 # Instantiate the custom environment
-env = gym.make("InvertedPendulum-v5")
-custom_env = CustomInvertedPendulum(env)
+env = CustomInvertedPendulum()
 
 # Initialize PPO model with optimal parameters
 model = PPO(
     policy="MlpPolicy",
-    env=custom_env,
+    env=env,
     gamma=gamma,
     n_steps=n_steps,
     learning_rate=learning_rate,
@@ -30,6 +29,9 @@ callback = CustomCallback(n_steps)
 
 # Train the model
 model.learn(total_timesteps=100000, callback=callback)
+
+# save the model
+model.save("ppo_inverted_pendulum")
 
 # Plot rewards
 plt.subplot(1, 2, 1)

@@ -1,6 +1,5 @@
 import gymnasium as gym
 from stable_baselines3 import PPO
-from stable_baselines3.common.callbacks import BaseCallback
 import matplotlib.pyplot as plt
 from custom_env import CustomInvertedPendulum
 from custom_callback import CustomCallback
@@ -15,13 +14,12 @@ all_losses = {lr: [] for lr in learning_rates}
 # Train and collect data for each learning rate
 for lr in learning_rates:
     # Instantiate the custom environment
-    env = gym.make("InvertedPendulum-v5")
-    custom_env = CustomInvertedPendulum(env)
+    env = CustomInvertedPendulum()
     
     # Initialize PPO model with varying learning rate
     model = PPO(
         policy="MlpPolicy",
-        env=custom_env,
+        env=env,
         learning_rate=lr,  # Varying the learning rate
         verbose=1
     )

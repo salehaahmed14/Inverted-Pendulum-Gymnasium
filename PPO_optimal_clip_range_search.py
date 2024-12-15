@@ -14,13 +14,12 @@ all_losses = {clip: [] for clip in clip_range_values}
 # Train and collect data for each clip_range
 for clip_range in clip_range_values:
     # Instantiate the custom environment
-    env = gym.make("InvertedPendulum-v5")
-    custom_env = CustomInvertedPendulum(env)
+    env = CustomInvertedPendulum()
     
     # Initialize PPO model with default parameters and varying clip_range
     model = PPO(
         policy="MlpPolicy",
-        env=custom_env,
+        env=env,
         clip_range=clip_range,
         verbose=1
     )

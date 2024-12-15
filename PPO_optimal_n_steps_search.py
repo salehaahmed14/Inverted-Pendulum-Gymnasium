@@ -1,6 +1,5 @@
 import gymnasium as gym
 from stable_baselines3 import PPO
-from stable_baselines3.common.callbacks import BaseCallback
 import matplotlib.pyplot as plt
 from custom_env import CustomInvertedPendulum
 from custom_callback import CustomCallback
@@ -15,13 +14,12 @@ all_losses = {n_steps: [] for n_steps in n_steps_values}
 # Train and collect data for each n_steps
 for n_steps in n_steps_values:
     # Instantiate the custom environment
-    env = gym.make("InvertedPendulum-v5")
-    custom_env = CustomInvertedPendulum(env)
+    env = CustomInvertedPendulum()
     
     # Initialize PPO model with default parameters and varying n_steps
     model = PPO(
         policy="MlpPolicy",
-        env=custom_env,
+        env=env,
         n_steps=n_steps,
         verbose=1
     )

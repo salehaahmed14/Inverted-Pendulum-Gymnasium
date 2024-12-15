@@ -3,7 +3,7 @@ from stable_baselines3 import PPO
 import matplotlib.pyplot as plt
 from custom_callback import CustomCallback
 
-# Instantiate the custom environment
+# Instantiate the environment
 env = gym.make("InvertedPendulum-v5")
 
 # Initialize PPO model
