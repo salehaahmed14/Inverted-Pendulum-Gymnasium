@@ -57,7 +57,7 @@ model = PPO(
 callback = CustomCallback()
 
 # Train the model
-model.learn(total_timesteps=10000, callback=callback)
+model.learn(total_timesteps=100000, callback=callback)
 
 # Save the trained model
 model.save("ppo_inverted_pendulum")
