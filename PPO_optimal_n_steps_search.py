@@ -115,7 +115,7 @@ plt.legend()
 plt.subplot(1, 2, 2)
 for n_steps in n_steps_values:
     plt.plot(all_losses[n_steps], label=f"n_steps {n_steps}")
-plt.xlabel('Episodes')
+plt.xlabel('Number of Updates')
 plt.ylabel('Total Loss Per Update')
 plt.title('Total Loss for Different n_steps Values')
 plt.legend()
