@@ -1,4 +1,3 @@
-import gymnasium as gym
 from stable_baselines3 import PPO
 import matplotlib.pyplot as plt
 from custom_env import CustomInvertedPendulum
