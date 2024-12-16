@@ -5,9 +5,10 @@ from custom_env import CustomInvertedPendulum
 
 env = Monitor(CustomInvertedPendulum(render_mode='human'))
 
-# Load the pre-trained model
+#load the pre-trained model
 model = PPO.load("ppo_inverted_pendulum", env=env)
-# Evaluate the trained policy
+
+#evaluate the trained policy
 mean_reward, std_reward = evaluate_policy(
     model, 
     env, 
