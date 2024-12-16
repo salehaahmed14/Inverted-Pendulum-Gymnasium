@@ -12,11 +12,9 @@ This repository provides an implementation of the **Proximal Policy Optimization
 ## Requirements
 To run the code, ensure you have the following installed:
 - Python 3.8+
-- Gymnasium with MuJoCo support
 - PyTorch
 - NumPy
 - Matplotlib
-- Stable-Baselines3
 
 ## Usage
 
